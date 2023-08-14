@@ -64,7 +64,6 @@ const Synopsis = () => {
     const body = {
       prompt: prompt,
       synopsis: synopsis,
-      degree: degree,
       info: info,
       type: 'first',
     }

@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useState } from 'react'
 import style from './engine.module.css'
 import Brain from './Brain'
@@ -19,7 +21,6 @@ const gen = () => {
   useEffect(() => {
     const randQ = getRandomElements(questions_corpus, 3)
     setQuestions(randQ)
-    console.log(randQ)
   }, [])
 
   const generate = async () => {}
