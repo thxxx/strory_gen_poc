@@ -36,6 +36,7 @@ const Brain = () => {
           {chosenKeywords?.map((item) => {
             return (
               <div
+                key={item.text}
                 className={style.tag}
                 onClick={() => clickKeyword(item)}
                 style={{ background: SELECT_COLOR }}
@@ -62,6 +63,7 @@ const Brain = () => {
           {keywords.slice(index * 55, (index + 1) * 55).map((item) => {
             return (
               <div
+                key={item.text}
                 className={style.tag}
                 onClick={() => clickKeyword(item)}
                 style={{

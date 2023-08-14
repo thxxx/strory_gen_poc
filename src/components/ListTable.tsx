@@ -17,6 +17,7 @@ const ListTable = ({ title, el }: ListTableProps) => {
         {el?.map((item) => {
           return (
             <div
+            key={item}
               style={{
                 background: `${chosenTopic === item ? SELECT_COLOR : 'white'}`,
                 maxWidth: '40vw',

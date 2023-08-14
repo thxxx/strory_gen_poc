@@ -68,6 +68,7 @@ const PMselect = () => {
         {GLIST.map((item) => {
           return (
             <div
+              key={item.value}
               style={{
                 background: `${
                   planList.includes(item) ? SELECT_COLOR : 'white'

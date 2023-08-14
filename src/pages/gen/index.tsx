@@ -74,7 +74,7 @@ const Gem = () => {
           }}
         >
           {questions.slice(0, 3).map((item) => {
-            return <div className={style.question}>{item}</div>
+            return <div className={style.question} key={item}>{item}</div>
           })}
           <button className={style.reset_button} onClick={() => {
             const randQ = getRandomElements(questions_corpus, 3)
