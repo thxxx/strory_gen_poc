@@ -14,7 +14,7 @@ import { questions_corpus } from '@/utils/questions'
 import ReWriteInput from '@/components/ReWriteInput'
 import { usePlantStore } from '@/utils/planStore'
 
-const gen = () => {
+const Gem = () => {
   const {questions, setQuestions} = usePlantStore()
   const [prompt, setPrompt] = useState<string>('')
 
@@ -114,4 +114,4 @@ const gen = () => {
   )
 }
 
-export default gen
+export default Gem
