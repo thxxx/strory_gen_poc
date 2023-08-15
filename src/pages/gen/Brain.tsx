@@ -2,13 +2,17 @@ import React, { useState } from 'react'
 import style from './engine.module.css'
 import TextInput from '@/components/TextInput'
 import { KeywordsType, keywords } from '@/utils/keywords'
-import { SELECT_COLOR, useContentStore } from '@/utils/store'
+import { SELECT_COLOR, SERVER_IP, useContentStore } from '@/utils/store'
 import TitleContainer from '@/components/TitleContainer'
+import ReWriteInput from '@/components/ReWriteInput'
+import axios from 'axios'
 
 const Brain = () => {
   const { brainDump, chosenKeywords, setChosenKeywords, setBrainDump } =
     useContentStore()
   const [index, setIndex] = useState<number>(0)
+  const [prompt, setPrompt] = useState<string>("")
+  const [responseText, setResponseText] = useState<string>("")
 
   const clickKeyword = (word: KeywordsType) => {
     if (chosenKeywords?.includes(word)) {
@@ -19,19 +23,53 @@ const Brain = () => {
     }
   }
 
+  const seeNudge = () => {
+
+  }
+
+  const generate = async () => {
+    if (prompt.length<3) return;
+
+    const body = {
+      info:'',
+      brainDump:brainDump,
+      prompt:prompt
+    }
+
+    const response = await axios.post(SERVER_IP + '/brain_ask', body)
+
+    console.log("aaaa : ", response)
+    setResponseText(response['data']['data'])
+  }
+
   return (
     <div className={style.gen_card}>
       <div className={style.inner}>
-        <p>모든 생각을 적는 곳</p>
+        <TitleContainer
+          title='모든 생각을 적는 곳'
+          seeNudge={seeNudge}
+        />
         <TextInput
           row={19}
           value={brainDump}
           onChange={(e) => setBrainDump(e.currentTarget.value)}
           placeholder='이야기에 관해서 머릿속에 떠오르는 모든 것들을 적어보세요. 의식의 흐름대로 적어도 되고 문장이 아니어도 괜찮습니다.'
         />
+        <ReWriteInput
+            value={prompt}
+            onChange={(e) => setPrompt(e.currentTarget.value)}
+            placeholder='도움이 필요한 내용들을 입력해주세요. 예시) 이런 이야기에서 결말은 어떻게 나는게 좋을까? 이걸로 아무 소설 아이디어 만들어줘 등'
+            onClick={generate}
+          />
+        {
+          responseText && <div className={style.brain_res} dangerouslySetInnerHTML={{__html:responseText}} />
+        }
       </div>
       <div className={style.inner}>
-        <p>선택한 키워드 ( 클릭해서 삭제 )</p>
+        {
+          chosenKeywords.length > 0 &&
+            <p>선택한 키워드 ( 클릭해서 삭제 )</p>
+        }
         <div>
           {chosenKeywords?.map((item) => {
             return (

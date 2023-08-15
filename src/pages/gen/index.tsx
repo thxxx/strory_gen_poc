@@ -82,6 +82,7 @@ const Gem = () => {
           }}>🔄</button>
         </div>
         <br />
+        {/* 
         <div
           className={style.questionContainer}
           style={{ padding: '0px 16px' }}
@@ -93,10 +94,10 @@ const Gem = () => {
             onClick={generate}
             placeholder='어떤 종류의 질문이 필요하신가요? 예시) 판타지 세계관을 작성하려고 해, 좀 더 로맨스에 관련된 질문해줘'
           />
-        </div>
+        </div> */}
         <Brain />
         {/* 주제 추천 */}
-        <TopicsRec />
+        {/* <TopicsRec /> */}
         {/* 기획서 구성 선택 및 생성 : 위에서 작성한 내용으로, 이것들을 만들어주세요 */}
         <PMselect />
         {/* 선택한 목록을 기반으로 생성된 기획서 */}
