@@ -23,11 +23,9 @@ const Gem = () => {
     setQuestions(randQ)
   }, [])
 
-  const generate = async () => {}
-
-  function getRandomElements<T>(array: T[], count: number): T[] {
+  const getRandomElements =  (array: string[], count: number): string[] => {
     let dup = [...array]
-    const result: T[] = [];
+    const result: string[] = [];
  
     // Ensure the count is within the range of the array length
     count = Math.min(count, array.length);
@@ -95,7 +93,7 @@ const Gem = () => {
             placeholder='어떤 종류의 질문이 필요하신가요? 예시) 판타지 세계관을 작성하려고 해, 좀 더 로맨스에 관련된 질문해줘'
           />
         </div> */}
-        <Brain />
+        <Brain getRandomElements={getRandomElements} />
         {/* 주제 추천 */}
         {/* <TopicsRec /> */}
         {/* 기획서 구성 선택 및 생성 : 위에서 작성한 내용으로, 이것들을 만들어주세요 */}

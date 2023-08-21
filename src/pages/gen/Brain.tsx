@@ -6,10 +6,17 @@ import { SELECT_COLOR, SERVER_IP, useContentStore } from '@/utils/store'
 import TitleContainer from '@/components/TitleContainer'
 import ReWriteInput from '@/components/ReWriteInput'
 import axios from 'axios'
+import { questions_corpus } from '@/utils/questions'
+import { usePlantStore } from '@/utils/planStore'
 
-const Brain = () => {
+type BrainProps = {
+  getRandomElements: (array:string[], count:number) => string[]
+}
+
+const Brain = ({getRandomElements}: BrainProps) => {
   const { brainDump, chosenKeywords, setChosenKeywords, setBrainDump } =
     useContentStore()
+  const {questions, setQuestions} = usePlantStore()
   const [index, setIndex] = useState<number>(0)
   const [prompt, setPrompt] = useState<string>("")
   const [responseText, setResponseText] = useState<string>("")
@@ -24,7 +31,10 @@ const Brain = () => {
   }
 
   const seeNudge = () => {
-
+    if(brainDump.length < 5){
+      const randQ = getRandomElements(questions_corpus, 3)
+      setQuestions(randQ)
+    }
   }
 
   const generate = async () => {
