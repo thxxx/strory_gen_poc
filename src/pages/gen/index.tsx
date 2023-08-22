@@ -13,6 +13,7 @@ import TitleContainer from '@/components/TitleContainer'
 import { questions_corpus } from '@/utils/questions'
 import ReWriteInput from '@/components/ReWriteInput'
 import { usePlantStore } from '@/utils/planStore'
+import Head from 'next/head'
 
 const Gem = () => {
   const {questions, setQuestions} = usePlantStore()
@@ -45,6 +46,13 @@ const Gem = () => {
 
   return (
     <main className={style.main}>
+      <Head>
+        <title>기획 어시스턴트</title>
+        <meta 
+          httpEquiv="Content-Security-Policy" 
+          content="upgrade-insecure-requests" 
+        />
+      </Head>
       <div className={style.innerMain} style={{ position: 'relative' }}>
         <h2>스토리 기획 도우미</h2>
         {/* 좋은 질문을 던져주기 */}

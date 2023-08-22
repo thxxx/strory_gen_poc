@@ -4,6 +4,7 @@ import React from 'react'
 import { useState } from 'react'
 import style from './generate.module.css'
 import Link from 'next/link'
+import Head from 'next/head';
 
 export default function Home() {
   const [inputText, setInputText] = useState<string>('')
@@ -27,6 +28,13 @@ export default function Home() {
 
   return (
     <main className={style.main}>
+    <Head>
+      <title>인덱스</title>
+      <meta 
+        httpEquiv="Content-Security-Policy" 
+        content="upgrade-insecure-requests" 
+      />
+    </Head>
       <div className={style.main_left}>
         <textarea
           className={style.editor}
