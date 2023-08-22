@@ -28,13 +28,13 @@ export default function Home() {
 
   return (
     <main className={style.main}>
-    <Head>
+    {/* <Head>
       <title>인덱스</title>
       <meta 
         httpEquiv="Content-Security-Policy" 
         content="upgrade-insecure-requests" 
       />
-    </Head>
+    </Head> */}
       <div className={style.main_left}>
         <textarea
           className={style.editor}

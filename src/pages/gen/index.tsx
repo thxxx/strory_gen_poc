@@ -46,13 +46,13 @@ const Gem = () => {
 
   return (
     <main className={style.main}>
-      <Head>
+      {/* <Head>
         <title>기획 어시스턴트</title>
         <meta 
           httpEquiv="Content-Security-Policy" 
           content="upgrade-insecure-requests" 
         />
-      </Head>
+      </Head> */}
       <div className={style.innerMain} style={{ position: 'relative' }}>
         <h2>스토리 기획 도우미</h2>
         {/* 좋은 질문을 던져주기 */}
