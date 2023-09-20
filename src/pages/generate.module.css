@@ -21,11 +21,8 @@
 .main {
   width: 95%;
   height: 100%;
-  display: flex;
+  display:flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 10px;
 }
 
 .main_left {
@@ -37,8 +34,14 @@
 
 .main_right {
   width: 30vw;
-  min-height: 100vh;
+  min-height: 80vh;
+  height:100%;
   margin-left: 50px;
+  display:flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  padding: 10px 10px;
 }
 
 .blockBox {
