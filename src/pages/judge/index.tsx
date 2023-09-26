@@ -94,8 +94,8 @@ const JudgePage = () => {
     
     {
         middle && <>
-            <p style={{padding:5}}>{middle.map(item => {
-                return <div className={style.one_div}>
+            <p style={{padding:5}}>{middle.map((item, i) => {
+                return <div className={style.one_div} key={i}>
                     <strong>{item.type}</strong> : {item.text}
                 </div>
             })}</p>
@@ -109,8 +109,8 @@ const JudgePage = () => {
 
     {
         last && <>
-        <p style={{padding:5}}>{last.map(item => {
-            return <div className={style.one_div}>
+        <p style={{padding:5}}>{last.map((item, i) => {
+            return <div className={style.one_div} key={i}>
                 <strong>{item.type}</strong> : {item.text}
             </div>
         })}</p>
