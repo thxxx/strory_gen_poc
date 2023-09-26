@@ -2,7 +2,8 @@ import { PLANTYPE } from '@/pages/gen/PMselect'
 import { create } from 'zustand'
 import { KeywordsType } from './keywords'
 
-export const SERVER_IP = 'http://127.0.0.1:5000/'
+export const SERVER_IP = 'https://strserver-poc.dev.thingsflow.com'
+// export const SERVER_IP = 'http://127.0.0.1:5000/'
 export const SELECT_COLOR = 'rgba(210,210,250,1)'
 
 type UserContentState = {
